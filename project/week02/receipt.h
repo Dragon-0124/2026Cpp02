@@ -2,15 +2,14 @@
 #include "beverage.h"
 #include "company.h"
 
-class Receipt
-{
+class Receipt {
 private:
     int receiptNumber;
     int receiptTotal;
-    Company company; // has-a 
+    Company company;
 public:
-    Receipt(int receiptNumber, Company company); // aggregation
+    Receipt(int receiptNumber, string companyName, string companyTel);
     ~Receipt();
-    void add(int quantity, Beverage beverage);  // use-a, dependency
+    void add(int quantity, Beverage beverage);
     void print() const;
 };

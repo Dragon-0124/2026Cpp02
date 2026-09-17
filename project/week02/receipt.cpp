@@ -1,7 +1,7 @@
 ﻿#include "receipt.h"
 
-Receipt::Receipt(int receiptNumber, Company company) : receiptNumber(receiptNumber), company(company), receiptTotal(0)
-{
+Receipt::Receipt(int receiptNumber, string companyName, string companyTel) 
+    : receiptNumber(receiptNumber), company(companyName, companyTel), receiptTotal(0) {
 }
 Receipt::~Receipt()
 {
@@ -16,3 +16,4 @@ void Receipt::print() const
 	cout << "Receipt Num: " << receiptNumber << endl;
 	cout << "Total Price: " << receiptTotal << endl;
 }
+

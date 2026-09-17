@@ -1,0 +1,10 @@
+Type	Description
+<|--	Inheritance (is-a)
+*--	Composition (has-a : Strong)
+o--	Aggregation (has-a : Week)
+-->	Association (has-a)
+..>	Dependency (use-a)
+
+--	Link (Solid)
+..|>	Realization
+..	Link (Dashed)
