@@ -1,17 +1,20 @@
-﻿/*
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 using namespace std;
 
 class Pokemon
 {
 public:
+	Pokemon() { cout << "Pokemon Constructor" << endl; }
+	~Pokemon() { cout << "Pokemon Destructor" << endl; }
 	virtual void attack() const { cout << "Pokemon attacks" << endl; }
 };
 
 class Pikachu : public Pokemon
 {
 public:
+	Pikachu() { cout << "Pikachu Constructor" << endl; }
+	~Pikachu() { cout << "Pikachu Destructor" << endl; }
 	void attack() const { cout << "1M Volt Thunderbolt" << endl; }
 };
 
@@ -31,4 +34,3 @@ int main()
 
 	return 0;
 }
-*/
