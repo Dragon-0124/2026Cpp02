@@ -1,6 +1,7 @@
 ---
 title: Week02 Receipt (Aggregation)
 ---
+```mermaid
 classDiagram
     Receipt o-- Company : Aggregation (has-a)
     Receipt ..> Beverage : Dependency (use-a)
@@ -21,7 +22,7 @@ classDiagram
         +getPrice() int
     }
 
-    class Receipt {	
+    class Receipt { 
         -int receiptNumber
         -int receiptTotal
         -Company company
@@ -30,4 +31,4 @@ classDiagram
         +add(int quantity, Beverage beverage) void
         +print() void
     }
-
+```
