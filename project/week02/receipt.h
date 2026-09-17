@@ -6,10 +6,10 @@ class Receipt {
 private:
     int receiptNumber;
     int receiptTotal;
-    Company company;
+
 public:
-    Receipt(int receiptNumber, string companyName, string companyTel);
+    Receipt(int receiptNumber);
     ~Receipt();
     void add(int quantity, Beverage beverage);
-    void print() const;
+    void print(const Company& company) const;
 };

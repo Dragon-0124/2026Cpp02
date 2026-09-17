@@ -1,9 +1,9 @@
 ---
-title: Week02 Receipt (Composition)
+title: Week02 Receipt (Dependency)
 ---
 ```mermaid
 classDiagram
-    Receipt *-- Company : Composition (has-a)
+    Receipt *-- Company : Dependency (use-a)
     Receipt ..> Beverage : Dependency (use-a)
 
     class Company {
@@ -25,10 +25,9 @@ classDiagram
     class Receipt {
         -int receiptNumber
         -int receiptTotal
-        -Company company
-        +Receipt(int receiptNumber, string companyName, string companyTel)
+        +Receipt(int receiptNumber)
         +~Receipt()
         +add(int quantity, Beverage beverage) void
-        +print() void
+        +print(Company company) void
     }
 ```
