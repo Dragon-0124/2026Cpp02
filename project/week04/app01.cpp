@@ -2,38 +2,35 @@
 #include <string>
 using namespace std;
 
-class Pokemon
-{
+class Animal {
 public:
-	//Pokemon() { cout << "Pokemon Constructor" << endl; }
-	virtual~Pokemon() { cout << "Pokemon Destructor" << endl; }
-	//void attack() const { cout << "Pokemon attacks" << endl; }
-	virtual void attack() const { cout << "Pokemon attacks" << endl; }
+	virtual void makeSound() { cout << "Animals make sound\n"; }
 };
 
-class Pikachu : public Pokemon
-{
+class Dog : public Animal {
 public:
-	//Pikachu() { cout << "Pikachu Constructor" << endl; }
-	~Pikachu() { cout << "Pikachu Destructor" << endl; }
-	void attack() const { cout << "1M Volt Thunderbolt" << endl; }
+	void makeSound() { cout << "Worf!\n"; }
 };
 
-class Squirtle : public Pokemon
-{
+class Cat : public Animal {
 public:
-	//Pikachu() { cout << "Pikachu Constructor" << endl; }
-	~Squirtle() { cout << "Squirtle Destructor" << endl; }
-	void attack() const { cout << "Hydropump Attack" << endl; }
+	void makeSound() { cout << "Mew!\n"; }
 };
 
 int main()
 {
-	Pokemon* pokemons[4];
-	pokemons[0] = new Squirtle();
-	pokemons[1] = new Pikachu();
-	pokemons[2] = new Pokemon();
-	pokemons[3] = new Pokemon();
+	Animal* p = new Animal();
+	p->makeSound();
+	delete p;
+	p = nullptr;
 
+	Animal* p = new Dog();
+	p->makeSound();
+	
+	Dog* pd = (Dog*)p; // Down Casting | Old C style
+	pd->makeSound();
+
+	delete p;
+	p = nullptr;
 	return 0;
 }
