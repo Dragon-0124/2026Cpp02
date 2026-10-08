@@ -19,6 +19,8 @@ class DomitoryUndergraduated : public Domitory, public Undergraduated { // Multi
 
 int main(){
 	DomitoryUndergraduated uds;
-	//uds.warn(); // ambiguous
+	uds.Domitory::warn();
+	uds.Undergraduated::warn();
+
 	return 0;
 }
