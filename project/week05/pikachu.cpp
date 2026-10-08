@@ -1,4 +1,7 @@
 ﻿#include "pikachu.h"
+#include "PCH.h"
+using namespace std;
+
 
 //Pikachu::Pikachu() {}
 

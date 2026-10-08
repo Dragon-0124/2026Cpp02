@@ -1,4 +1,6 @@
 ﻿#include "Squirtle.h"
+#include "PCH.h"
+using namespace std;
 
 //Squirtle::Squirtle() {}
 
