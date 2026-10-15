@@ -26,15 +26,16 @@ public:
 		return Complex(++this->real, this->imaginary);
 	}
 
-	int getReal() const{
-		return real;
-	}
-	int getImag() const {
-		return imaginary;
-	}
+	int getReal() const{ return real; }
+	int getImag() const { return imaginary; }
 
 	
 };
+
+Complex operator+(Complex left, Complex right) { // Non-member Operator Overloading
+	return Complex(left.getReal() + right.getReal(), left.getImag() + right.getImag());
+}
+
 
 int main(){
 	Complex c1(7, 2);
