@@ -7,33 +7,34 @@ private:
 	int imaginary;	// 허수부
 
 public:
-	/*
-	Complex() {
-		real = 0;
-		imaginary = 0;
-	}
-	*/
-
 	Complex() : real(0), imaginary(0) {	}
 
 	Complex(int real, int imaginary) : real(real), imaginary(imaginary) {
-		//this->real = real;
-		//this->imaginary = imaginary
 	}
 	
-	int getReal() const{ // const -> 값 변경 막기(mutable같은 예외는 존재)
+	Complex operator+(Complex right) { // Operator overloading for addition
+		return Complex(this->real + right.real, this->imaginary + right.imaginary);
+	}
+
+	int getReal() const{
 		return real;
 	}
 	int getImag() const {
 		return imaginary;
 	}
 
-
+	
 };
 
 int main(){
 	Complex c1(7, 2);
-	cout << c1.getReal() << "+" << c1.getImag() << "i\n";
+	Complex c2(2, 9);
 
+	cout << c1.getReal() << "+" << c1.getImag() << "i\n";
+	cout << c2.getReal() << "+" << c2.getImag() << "i\n";
+	Complex c3 = c1.operator+(c2);	// Complex c3 = c1 + c2;
+
+	cout << c3.getReal() << "+" << c3.getImag() << "i\n";
+	
 	return 0;
 };
