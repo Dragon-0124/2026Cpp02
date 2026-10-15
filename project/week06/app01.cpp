@@ -18,12 +18,17 @@ public:
 
 	Complex operator++(int) { // 매개변수자리 int -> 후위연산 의미 tag
 		Complex backup(this->real, this->imaginary); // 이전상태 백업
-		this->real = this->real + 1;
+		real++;
 		return backup;
 	}
-
+	/*
 	Complex operator++() { // 전위연산
-		return Complex(++this->real, this->imaginary);
+		return Complex(++this->real, this->imaginary); // Complex 객체를 만들어서 메모리 효율이 떨어짐
+	}
+	*/
+	Complex& operator++() { // 개선판(Complex 객체 생성 x)
+		real++;
+		return *this;
 	}
 
 	int getReal() const{ return real; }
@@ -44,6 +49,7 @@ int main(){
 	cout << "c1 : " << c1.getReal() << "+" << c1.getImag() << "i\n";
 	cout << "c2 : " << c2.getReal() << "+" << c2.getImag() << "i\n";
 	Complex c3 = c1.operator+(c2);	// Complex c3 = c1 + c2;
+	Complex c3 = operator+(c1, c2);
 
 	cout << "c3 : " << c3.getReal() << "+" << c3.getImag() << "i\n";
 	
