@@ -83,7 +83,7 @@ int main() {
 	Complex c6;
 	cout << "c6 : "; cout << c6 << endl;
 	cin >> c6;
-	cout << "c6 : "; cout << c6 << endl;
+	cout << "c6 : "; cout << c6 << endl;	
 
 	return 0;
-};
+};				
