@@ -8,12 +8,16 @@ int main() {
 	try {
 		da1.setValue(0, 99);
 		da1.setValue(4, -77);
-		da1.setValue(9, 3);
+		//da1.setValue(9, 3); // exception
 		cout << da1.getValue(4) << '\n';
-		cout << da1.getValue(9) << '\n';
+		cout << da1.getValue(3) << '\n'; // dummy value(Not cleared)
+		cout << da1.getValue(9) << '\n'; // exception - beyond range
 	}
 	catch (int error) {
-		cout << "Beyond allocated memory space\n";
+		if (error == -1)
+			cout << "Error Code: " << error << "\nBeyond allocated memory space(Set value)\n";
+		else if (error == -2)
+			cout << "Error Code: " << error << "\nBeyond allocated memory space(Get value)\n";
 	}
 	return 0;
 }		
