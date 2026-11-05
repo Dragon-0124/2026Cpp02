@@ -3,8 +3,9 @@ using namespace std;
 
 class Complex {
 private:
-	mutable int real;
+	int real;
 	int imaginary;
+	friend Complex operator+(Complex left, Complex right);
 public:
 	Complex() : real(0), imaginary(0) {
 	}
@@ -19,10 +20,7 @@ public:
 		real++;
 		return *this;
 	}
-	void test() const {
-		real = 111;
-	}
-	int getReal() const {
+	int getReal() const {		
 		return real;
 	}
 	int getImaginary() const {
@@ -37,7 +35,7 @@ public:
 };
 
 Complex operator+(Complex left, Complex right) {
-	return Complex(left.getReal() + right.getReal(), left.getImaginary() + right.getImaginary());
+	return Complex(left.real + right.real, left.imaginary + right.imaginary);
 }
 
 ostream& operator<<(ostream& left, const Complex& right) {
@@ -47,9 +45,9 @@ ostream& operator<<(ostream& left, const Complex& right) {
 
 istream& operator>>(istream& left, Complex& right) {
 	int r = 0, i = 0;
-	cout << "실수부 입력 : ";
+	cout << "�Ǽ��� �Է� : ";
 	left >> r;
-	cout << "허수부 입력 : ";
+	cout << "����� �Է� : ";
 	left >> i;
 
 	right.setReal(r);
