@@ -8,9 +8,24 @@ int main() {
 		DynamicArray da1(5);
 		da1.setValue(0, 99);
 		da1.setValue(4, -77);
-		cout << da1.getValue(4) << '\n';
-		cout << da1.getValue(3) << '\n';  // dummy value (초기화를 안함)
-		cout << da1.getValue(9) << '\n';  // exception. 범위를 벗어남
+		int num1, num2;
+		cout << "Address 1st u want to check Value : ";
+		cin >> num1;
+
+		cout << "Address 2nd u want to check Value : ";
+		cin >> num2;
+		
+		
+		if (num1 > da1.getSize())
+			throw MyException(-2, "Beyond allocated memory space(Get value)", da1.getptr(num1));
+		else if(num2 > da1.getSize())
+			throw MyException(-2, "Beyond allocated memory space(Get value)", da1.getptr(num2));
+		else
+		{
+			cout << "Value of Address No." << num1 << " : " << da1.getValue(num1) << '\n';
+			cout << "Value of Address No." << num2 << " : " << da1.getValue(num2) << '\n';
+		}
+		
 	}
 	catch (const char* errorCode) {
 		cout << errorCode;

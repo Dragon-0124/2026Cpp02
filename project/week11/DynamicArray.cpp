@@ -8,7 +8,7 @@ DynamicArray::DynamicArray(int size) : size(size)
 	try{
 		this->size = size;
 		ptr = new int[size];  // dynamic allocation (heap memory)
-		throw MyException(3000, "Memorry error", this);
+		//throw MyException(3000, "Memorry error", this);
 	}
 	catch (...) { // (...) -> 모든 형태의 에러를 받음
 		cout << "try-catch in Constructor\n";
@@ -46,4 +46,9 @@ int DynamicArray::getValue(int idx) const
 		return ptr[idx];
 	else
 		throw MyException(-2, "Beyond allocated memory space(Get value)", this);
+}
+
+int* DynamicArray::getptr(int idx) const
+{
+	return ptr + idx;
 }

@@ -11,4 +11,6 @@ public:
 
 	void setValue(int idx, int value);
 	int getValue(int idx) const;
+	int* getptr(int idx) const;
+
 };
