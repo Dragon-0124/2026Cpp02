@@ -1,4 +1,5 @@
 ﻿#include "DynamicArray.h"
+#include "MyException.h"
 
 DynamicArray::DynamicArray(int size) : size(size)
 {
@@ -22,7 +23,7 @@ void DynamicArray::setValue(int idx, int value)
 	if (idx >= 0 && idx < getSize())
 		ptr[idx] = value;
 	else
-		throw -1;
+		throw MyException(-1, "Beyond allocated memory space(Set value)\n", this);
 	
 }
 
@@ -31,5 +32,5 @@ int DynamicArray::getValue(int idx) const
 	if (idx >= 0 && idx < getSize())
 		return ptr[idx];
 	else
-		throw - 2;
+		throw MyException(-2, "Beyond allocated memory space(Get value)\n", this);
 }
