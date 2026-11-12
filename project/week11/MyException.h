@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "DynamicArray.h"
+
 class MyException {
 private:
 	int errorCode;
