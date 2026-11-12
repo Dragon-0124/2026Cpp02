@@ -1,13 +1,22 @@
 ﻿#include "DynamicArray.h"
 #include "MyException.h"
 #include <iostream>
+using namespace std;
 
 DynamicArray::DynamicArray(int size) : size(size)
 {
-	this->size = size;
-	ptr = new int[size];  // dynamic allocation (heap memory)
-	std::cout << "(" << this << ") Object created \n";
-	throw MyException(3000, "Memorry error", this);
+	try{
+		this->size = size;
+		ptr = new int[size];  // dynamic allocation (heap memory)
+		throw MyException(3000, "Memorry error", this);
+	}
+	catch (...) { // (...) -> 모든 형태의 에러를 받음
+		cout << "try-catch in Constructor\n";
+		delete[] ptr;
+		ptr = nullptr;
+		throw;
+	}
+	cout << "(" << this << ") Object created \n";
 }
 
 DynamicArray::~DynamicArray()
