@@ -1,20 +1,26 @@
 ﻿#include <iostream>
+#include <cstring>
 using namespace std;
 
-template <typename T>
-T smaller(T first, T second)
+template <typename U>
+void printinfo(U data)
 {
-    if (first < second)
-    {
-        return first;
-    }
-    return second;
+    cout << data << '\n';
+    cout << "General Template\n";
+}
+
+template <>
+void printinfo<const char*>(const char* data)
+{
+    cout << data << '\n';
+    cout << "Specialized Template\n";
+    //cout << strlen(data) << "\n";
 }
 
 int main()
 {
-    cout << smaller(-11, -14) << endl;
-    //cout << smaller(99, 3.14) << endl;  // error
-    cout << smaller<double>(99, 3.14) << endl;  // 99 -> 99.0 activate
+    printinfo(55);
+    printinfo(2.71);
+    printinfo("C++");
     return 0;
 }
