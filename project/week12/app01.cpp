@@ -1,26 +1,33 @@
 ﻿#include <iostream>
-#include <cstring>
 using namespace std;
 
-template <typename U>
-void printinfo(U data)
+template <typename T>
+T smallest(const T& first, const T& second)
 {
-    cout << data << '\n';
-    cout << "General Template\n";
+    if (first < second)
+    {
+        return first;
+    }
+    return second;
 }
 
-template <>
-void printinfo<const char*>(const char* data)
+// 탬플릿 오버로딩을 통해 서로 다른 2개의 함수를 부르는 것이므로 재귀함수가 아니다
+template <typename T>
+T smallest(const T& first, const T& second, const T& third)
 {
-    cout << data << '\n';
-    cout << "Specialized Template\n";
-    //cout << strlen(data) << "\n";
+    return smallest(smallest(first, second), third);
 }
+
+template <typename C>
+void smallc(C first, C second, C third)
+{
+    cout << "smallest(" << first << "," << second << "," << third << ") = " << smallest(first, second, third) << endl;
+}
+
 
 int main()
 {
-    printinfo(55);
-    printinfo(2.71);
-    printinfo("C++");
+    smallc('k', 'o', 'r');
+    smallc(3, 1, 4);
     return 0;
 }
