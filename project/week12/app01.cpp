@@ -1,21 +1,20 @@
 ﻿#include <iostream>
 using namespace std;
 
-template <typename T, int N>
-void print(T(&array)[N])
+template <typename T>
+T smaller(T first, T second)
 {
-    for (int i = 0; i < N; i++)
+    if (first < second)
     {
-        cout << array[i] << " ";
+        return first;
     }
-    cout << endl;
+    return second;
 }
 
 int main()
 {
-    int arr1[4] = { 7, 3, 5, 1 };
-    double arr2[3] = { 7.5, 6.1, 4.6 };
-    print(arr1);
-    print(arr2);
+    cout << smaller(-11, -14) << endl;
+    //cout << smaller(99, 3.14) << endl;  // error
+    cout << smaller<double>(99, 3.14) << endl;  // 99 -> 99.0 activate
     return 0;
 }
