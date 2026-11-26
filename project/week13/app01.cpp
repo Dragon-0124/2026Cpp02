@@ -56,16 +56,21 @@ public:
     }
 };
 
+/*
+typedef Stack<int> iStack; // old_style alias
+typedef Stack<Pokemon*> pStack; 
+*/
 
-typedef Stack<int> iStack;
-typedef Stack<Pokemon*> pStack; //alias
+using iStack = Stack<int>; // modern_style alias
+using pStack = Stack<Pokemon*>;
+
 int main()
 {
     //Stack<int> stack(10);
     Pokemon* pikachu = new Pokemon(100);
     Pokemon* mu = new Pokemon(120);
     //Stack<Pokemon*> pokemons(5);
-    pStack pokemons(2);
+    pStack pokemons(5);
 
     pokemons.push(pikachu);
     pokemons.push(mu);
